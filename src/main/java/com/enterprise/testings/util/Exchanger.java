@@ -23,5 +23,6 @@ public class Exchanger {
 
     public static void foo5() {
         System.out.println("kung foo5");
+        System.out.println("jackie chan");
     }
 }
