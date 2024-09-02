@@ -1,16 +1,16 @@
-FROM eclipse-temurin:17-jdk-alpine as build
+FROM openjdk:17-slim-buster as build
 
 WORKDIR /app
 
 COPY gradlew ./
 COPY gradle ./gradle
 
-COPY build.gradle settings.gradle ./
+COPY build.gradle.kts settings.gradle.kts ./
 COPY src ./src
 
 RUN chmod +x ./gradlew
 RUN ./gradlew clean build test
-FROM eclipse-temurin:17-jre-alpine
+FROM openjdk:17-slim-buster
 WORKDIR /app
 COPY --from=build /app/build/libs/*.jar app.jar
 
