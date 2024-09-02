@@ -15,7 +15,7 @@ public class Exchanger {
     }
 
     public static void foo3() {
-        System.out.println("foo3");
+        System.out.println("foo3- hello ");
     }
     public static void foo4() {
         System.out.println("foo4");
