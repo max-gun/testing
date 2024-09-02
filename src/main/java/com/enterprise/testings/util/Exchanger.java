@@ -20,4 +20,8 @@ public class Exchanger {
     public static void foo4() {
         System.out.println("foo4");
     }
+
+    public static void foo5() {
+        System.out.println("kung foo5");
+    }
 }
