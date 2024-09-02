@@ -25,4 +25,12 @@ public class Exchanger {
         System.out.println("kung foo5");
         System.out.println("jackie chan");
     }
+
+    public static void foo6() {
+        System.out.println("kung foo fighters");
+    }
+
+    public static void foo7() {
+        System.out.println("foo fighters");
+    }
 }
