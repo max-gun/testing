@@ -24,4 +24,12 @@ public class Exchanger {
     public static void foo5() {
         System.out.println("kung foo5");
     }
+
+    public static void foo6() {
+        System.out.println("kung foo fighters");
+    }
+
+    public static void foo7() {
+        System.out.println("foo fighters");
+    }
 }
