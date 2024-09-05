@@ -1,5 +1,6 @@
 package com.enterprise.testings.util;
 
+import java.lang.reflect.Field;
 import java.util.Arrays;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Arrays;
  * @since 05/09/2024
  */
 public class ReflectionExample {
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
         // one way to call a class blueprint - directly from class
         Class<?> clazz1 = Student.class;
 
@@ -25,10 +26,25 @@ public class ReflectionExample {
         System.out.println("Students parents: " + parent.getName());
 
         Class<?>[] interfaces = clazz1.getInterfaces();
-        System.out.println("Students interfaces: ");
+        System.out.println("Student interfaces: ");
         Arrays.stream(interfaces)
                 .map(Class::getName)
                 .forEach(System.out::println);
+
+        Field[] fields = clazz2.getDeclaredFields();
+        System.out.println("Students Fields: ");
+        Arrays.stream(fields)
+                .map(Field::getName)
+                .forEach(System.out::println);
+
+        Field heightField = clazz2.getDeclaredField("height");
+        System.out.println("======");
+        heightField.setAccessible(true);
+        Object mosheHeight = heightField.get(moshe);
+
+        System.out.println("mosheHeight: " + mosheHeight);
+
+
 
         System.out.println("Bazinga!");
     }
@@ -43,18 +59,22 @@ interface Geek {
 }
 
 class Person {
-    int age;
+    public int age;
+    public String name;
 
     public Person() {
+        this.name = "Bruria";
         this.age = 20;
     }
 }
 
 class Student extends Person implements Caucasian, Geek{
-    int height;
+    private int height;
+    public String type;
 
     public Student() {
         this.height = 182;
+        this.type = "Type C";
     }
 }
 
