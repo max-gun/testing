@@ -76,6 +76,14 @@ class Student extends Person implements Caucasian, Geek{
         this.height = 182;
         this.type = "Type C";
     }
+
+    public void doSomething() {
+        System.out.println("I'm doing something");
+    }
+
+    public void doThis(String something) {
+        System.out.println("I'm doing " + something);
+    }
 }
 
 class Sophomore extends Student {
