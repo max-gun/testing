@@ -12,4 +12,6 @@ public interface ItemService {
     List<Item> getAllItems();
 
     Item saveItem(Item item);
+
+    Item getItem(String name);
 }

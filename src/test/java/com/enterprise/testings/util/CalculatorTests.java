@@ -3,6 +3,7 @@ package com.enterprise.testings.util;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 
 /**
@@ -48,9 +49,12 @@ public class CalculatorTests {
 
     @Test
     public void testDivWithZero() {
-        int result = calc.div(10, 0);
-        int expected = 5;
-        assertEquals(expected, result, "the result should be 5");
+        try {
+            calc.div(10, 0);
+            fail();
+        } catch (ArithmeticException e) {
+            // PASSED
+        }
     }
 
     @AfterAll

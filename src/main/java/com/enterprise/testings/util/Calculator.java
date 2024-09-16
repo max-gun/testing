@@ -11,9 +11,6 @@ public class Calculator {
     }
 
     public int div(int a, int b) {
-       // if () {
-            
-        //}
         return a / b;
     }
 }
